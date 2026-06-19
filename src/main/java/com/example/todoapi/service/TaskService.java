@@ -64,8 +64,8 @@ public class TaskService {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Registro Não encontrado com ID " + id));
 
-        taskRequestDto.setTitle(taskRequestDto.getTitle());
-        taskRequestDto.setDescription(taskRequestDto.getDescription());
+        task.setTitle(taskRequestDto.getTitle());
+        task.setDescription(taskRequestDto.getDescription());
 
         return toResponseDto(taskRepository.save(task));
     }

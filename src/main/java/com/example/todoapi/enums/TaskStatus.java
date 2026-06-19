@@ -1,10 +1,10 @@
 package com.example.todoapi.enums;
 
 public enum TaskStatus {
-    WAITING("Waiting Payment"),
-    PAID("Paid"),
-    SEND("Send"),
-    DELIVERED("Delivered");
+    PENDING("PENDING"),
+    CANCELED("Cancelled"),
+    ACTIVE("Active"),
+    COMPLETED("Completed");
 
     private final String description;
     TaskStatus(String description) {

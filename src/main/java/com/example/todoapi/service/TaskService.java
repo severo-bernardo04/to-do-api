@@ -47,7 +47,7 @@ public class TaskService {
 
     public TaskResponseDto findById(Long id) {
         Task task = taskRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+                .orElseThrow(() -> new RuntimeException("Tarefa não encontrado"));
 
         return toResponseDto(task);
     }
@@ -70,4 +70,10 @@ public class TaskService {
         return toResponseDto(taskRepository.save(task));
     }
 
+    public void deleteTask(Long id) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tarefa Não Encontrada"));
+
+        taskRepository.delete(task);
+    }
 }

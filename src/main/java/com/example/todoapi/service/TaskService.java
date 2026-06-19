@@ -64,15 +64,15 @@ public class TaskService {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Registro Não encontrado com ID " + id));
 
-        taskRequestDto.setTitle(task.getTitle());
-        taskRequestDto.setDescription(task.getDescription());
+        taskRequestDto.setTitle(taskRequestDto.getTitle());
+        taskRequestDto.setDescription(taskRequestDto.getDescription());
 
         return toResponseDto(taskRepository.save(task));
     }
 
-    public void deleteTask(Long id) {
+    public void delete(Long id) {
         Task task = taskRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tarefa Não Encontrada"));
+                .orElseThrow(() -> new EntityNotFoundException("Tarefa Não Encontrada"));
 
         taskRepository.delete(task);
     }
